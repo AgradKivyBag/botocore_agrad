@@ -68,7 +68,7 @@ class TestDoesNotLeakMemory(BaseClientDriverTest):
         self.cmd('create_waiter', 's3', 'bucket_exists')
         self.cmd('free_waiters')
         self.record_memory()
-        for _ in range(100):
+        for _ in range(500):
             self.cmd('create_waiter', 's3', 'bucket_exists')
             self.cmd('free_waiters')
         self.record_memory()
@@ -93,7 +93,7 @@ class TestDoesNotLeakMemory(BaseClientDriverTest):
         self.cmd('create_paginator', 's3', 'list_objects')
         self.cmd('free_paginators')
         self.record_memory()
-        for _ in range(100):
+        for _ in range(500):
             self.cmd('create_paginator', 's3', 'list_objects')
             self.cmd('free_paginators')
         self.record_memory()
